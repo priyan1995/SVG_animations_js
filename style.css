@@ -21,12 +21,13 @@
     bottom: -61px;
 }
 
-.girl-svg svg path {
+
+/* .girl-svg svg path {
     stroke-dasharray: 0;
     stroke-dashoffset: 0;
     stroke: black;
     fill: white;
-}
+} */
 
 #heart {
     width: 150px;
@@ -38,10 +39,33 @@
     stroke-dasharray: 54;
     stroke-dashoffset: 54;
     stroke-width: 1px;
-    animation: 2s ease-in forwards animateHeart, 0.8s linear 2s 2 forwards beat;
+    cursor: pointer;
 }
 
-@keyframes animateHeart {
+#heart path.liked {
+    animation: 2s ease-in forwards animateHeartLike, 0.8s linear 2s 2 forwards beat;
+}
+
+#heart path.unliked {
+    animation: 2s ease-in forwards animateHeartUnLike;
+}
+
+.next-text path {
+    stroke-dasharray: 4012px;
+    stroke-dashoffset: 4012px;
+    fill: white;
+    stroke: #a1a1a1;
+}
+
+.next-txt-animate {
+    animation: animateNextTxt 15s ease forwards, fillanim 5s ease forwards 3s;
+}
+
+.next-text-animation-reverse {
+    animation: animateNextTxtReverse 8s ease backwards, fillanimReverse 2s ease backwards 1s;
+}
+
+@keyframes animateHeartLike {
     0% {
         stroke-dashoffset: 54;
         fill: var(--gray);
@@ -57,12 +81,64 @@
 
 @keyframes beat {
     0% {
-        transform: scale(1, 1);
+        transform: scale(1);
     }
     50% {
-        transform: scale(0.9, 0.9);
+        transform: scale(0.9);
     }
     100% {
-        transform: scale(1, 1);
+        transform: scale(1);
+    }
+}
+
+@keyframes animateHeartUnLike {
+    0% {
+        stroke-dashoffset: 0;
+        fill: var(--magenta);
+    }
+    30% {
+        stroke-dashoffset: 0;
+        fill: var(--gray);
+    }
+    100% {
+        stroke-dashoffset: 54;
+        fill: var(--gray);
+    }
+}
+
+@keyframes animateNextTxt {
+    0% {}
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fillanim {
+    0% {
+        fill: transparent;
+    }
+    100% {
+        fill: #a1a1a1;
+    }
+}
+
+
+/* reverse animate next text */
+
+@keyframes animateNextTxtReverse {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 4012;
+    }
+}
+
+@keyframes fillanimReverse {
+    0% {
+        fill: #a1a1a1;
+    }
+    100% {
+        fill: transparent;
     }
 }
