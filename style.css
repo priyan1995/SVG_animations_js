@@ -61,8 +61,8 @@
     animation: animateNextTxt 15s ease forwards, fillanim 5s ease forwards 3s;
 }
 
-.next-text-animation-reverse {
-    animation: animateNextTxtReverse 8s ease backwards, fillanimReverse 2s ease backwards 1s;
+.remove-animations {
+    animation: animateNextTxtReverse 15s ease forwards, fillanimReverse 2s ease backwards 1s;
 }
 
 @keyframes animateHeartLike {
@@ -140,5 +140,36 @@
     }
     100% {
         fill: transparent;
+    }
+}
+
+
+/* bottom line */
+
+.bottom-line path {
+    stroke-dasharray: 1780px;
+    stroke-dashoffset: 1780px;
+    fill: white;
+    stroke: #000000;
+}
+
+.bottom-line-animate {
+    animation: bottomLineAnimate 5s ease forwards, fillBottomLine 5s ease forwards 3s;
+}
+
+@keyframes bottomLineAnimate {
+    0% {}
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fillBottomLine {
+    0% {
+        fill: transparent;
+    }
+    100% {
+        fill: #000000;
+        ;
     }
 }

@@ -2,20 +2,11 @@ var paths = document.querySelectorAll("svg path");
 var nextTxt = document.querySelector(".next-text path");
 var heartIcon = document.getElementById("heart");
 const pathHeart = document.querySelector("#heart path");
+const bottomLine = document.querySelector(".bottom-line path")
 
-i = 0;
 
-paths.forEach(function(item, index) {
-    i++;
 
-    var pathlength = item.getTotalLength();
-
-    item.setAttribute("stroke-dasharray", pathlength);
-    item.setAttribute("stroke-dashoffset", pathlength);
-
-    //console.log(pathlength, index);
-})
-
+// heart icon clicking animations
 window.addEventListener('DOMContentLoaded', () => {
 
     const likeUnlikePost = () => {
@@ -31,23 +22,26 @@ window.addEventListener('DOMContentLoaded', () => {
     pathHeart.addEventListener('click', likeUnlikePost);
 })
 
-console.log(nextTxt.getTotalLength())
+console.log(bottomLine.getTotalLength())
 
 
+// heart icon on click next text animatiobn
 heartIcon.addEventListener('click', addAnimationNext);
 
 function addAnimationNext() {
 
     if (pathHeart.classList.contains("liked")) {
         setInterval(() => {
+            nextTxt.classList.remove('next-text-animation-reverse');
             nextTxt.classList.add('next-txt-animate');
-            nextTxt.classList.re4move('next-text-animation-reverse');
+            bottomLine.classList.add('bottom-line-animate')
+
         }, 2000)
-    } else if (pathHeart.classList.contains("unliked")) {
-        nextTxt.classList.remove('next-txt-animate');
+    } else if (!pathHeart.classList.contains("unliked")) {
+
         nextTxt.classList.add('next-text-animation-reverse');
+        nextTxt.classList.remove('next-txt-animate');
     }
-
-
-
 }
+
+// heart icon onclick bottom line animation
