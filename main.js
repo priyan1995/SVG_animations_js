@@ -2,7 +2,8 @@ var paths = document.querySelectorAll("svg path");
 var nextTxt = document.querySelector(".next-text path");
 var heartIcon = document.getElementById("heart");
 const pathHeart = document.querySelector("#heart path");
-const bottomLine = document.querySelector(".bottom-line path")
+const bottomLine = document.querySelector(".bottom-line path");
+const plantRight = document.querySelector(".light-plant");
 
 
 
@@ -36,12 +37,17 @@ function addAnimationNext() {
             nextTxt.classList.add('next-txt-animate');
             bottomLine.classList.add('bottom-line-animate')
 
+            setInterval(() => {
+                plantRight.classList.add('light-plant-animated')
+            }, 5000)
+
         }, 2000)
     } else if (!pathHeart.classList.contains("unliked")) {
 
         nextTxt.classList.add('next-text-animation-reverse');
         nextTxt.classList.remove('next-txt-animate');
     }
+
 }
 
 // heart icon onclick bottom line animation
